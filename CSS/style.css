@@ -1,0 +1,50 @@
+
+.nav-link:hover{
+    color: grey;
+
+}
+
+.slider{
+    width: fit-content;
+    margin: auto;
+    width: auto;
+    
+}
+body{
+    background-color: #ffff     ;
+}
+
+.mainText{
+    text-align: center;
+    border: 2px black solid;
+    width: 70%;
+    margin: auto;
+    padding: 6px;
+    margin-top: 46px;
+    background-color: #caf4ff;
+}
+
+.delete{
+    background-color: rgb(255, 0, 0);
+    border: 1px solid rgb(255,0,0);
+    margin-right: 4px;
+    color: rgb(255,255,255);
+}
+
+.delete:hover{
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(255,0,0);
+    color: rgb(255,0,0);
+}
+
+.edit{
+    background-color: rgb(212, 212, 212);
+    border: 1px solid rgb(212, 212, 212);
+
+}
+
+.edit:hover{
+    background-color: rgb(255,255,255);
+    border: 1px solid rgb(0,0,0);
+    color: rgb(0,0,0);
+}
