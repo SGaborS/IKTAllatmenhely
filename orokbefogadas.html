@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="./Img/favicon.ico">
+    <link rel="stylesheet" href="./CSS/bootstrap.min.css">
+    <script src="./JavaScript/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="./CSS/style.css">
+    <title>Macskamenhely</title>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"><img src="./Img/macskicon.png" alt="">
+        <span class="navbar-brand"> Macskamenhely</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        
+      </button>
+      <div class="collapse navbar-collapse header" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link macskakGomb" href="#">Macskák </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link orokbefogadasGomb" href="#" >Örökbefogadás</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link adminfulGomb" href="#">Adminisztrációs fül</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container menupont orokbefogadas mt-5">
+    <form class="row g-3">
+      <div class="col-md-6 col-sm-12">
+        <label for="nev" class="form-label">Örökbefogadó teljes neve</label>
+        <input type="text" class="form-control" id="nev" required>
+        <label for="email" class="form-label">Örökbefogadó email-e</label>
+        <input type="email" class="form-control" id="email" required>
+        <label for="telefon" class="form-label">Örökbefogadó telefonszáma</label>
+        <input type="text" class="form-control" id="telefon" required>
+        <label for="lakcim" class="form-label">Örökbefogadó lakcíme</label>
+        <input type="text" class="form-control" id="lakcim" required>
+      </div>
+      <div class="col-md-6 col-sm-12">
+        <h3 class="text-center">Kiválasztott macska</h2>
+        <div class="container-fluid d-flex">
+          <div class="col-5 m-auto">
+            <img src="Img/cica.jpg" alt="macksa" class="d-block w-100">
+          </div>
+          <div class="col-5 m-auto">
+            <p class="text-center">Macka</p>
+            <p>Született: 2020-05-13 (3 éves)</p>
+            <p>Fajta: nem tudom</p>
+            <p>Leírás: nem </p>
+          </div>
+        </div>
+        <button type="button" class="btn btn-secondary m-auto d-block">Másik macska kiválasztása</button>
+      </div>
+      <div class="col-12">
+        <button class="btn btn-primary d-block m-auto" type="submit">Macska örökbefogadása</button>
+      </div>
+    </form>
+  </div>
+  <p class="menupont macskak">Macska</p>
+  <p class="menupont adminful">Adminfül</p>
+  <script src="JavaScript/script.js"></script>
+</body>
+</html>
