@@ -11,17 +11,7 @@
     
 }
 body{
-    background-color: #ffff     ;
-}
-
-.mainText{
-    text-align: center;
-    border: 2px black solid;
-    width: 70%;
-    margin: auto;
-    padding: 6px;
-    margin-top: 46px;
-    background-color: #caf4ff;
+    background-color: #fff;
 }
 
 .delete{
@@ -47,4 +37,36 @@ body{
     background-color: rgb(255,255,255);
     border: 1px solid rgb(0,0,0);
     color: rgb(0,0,0);
+}
+
+.addbutton{
+    border: 1px solid  rgb(0,0,0);
+    background-color: rgb(212, 212, 212);
+    border-radius: 5px;
+    margin-left: 15px;
+}
+
+
+.addbutton:hover{
+    border: 1px solid rgb(0,0,0);
+    background-color: rgb(255,255,255);
+    border-radius: 5px;
+    transform: translateY(-2px);
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    
+    
+}
+
+.adoptionText{
+    text-align: justify;
+    text-align: center;
+    
+}
+
+h5{
+    text-align: center;
+}
+
+.card {
+    margin: 10px;
 }

@@ -6,15 +6,18 @@ function clear() {
   }
 }
 
-clear();
 
-let adminful = document.querySelector(".adminfulGomb");
+clear();
+document.querySelector(".fooldal").style.display = "block";
+
+
+let fooldal = document.querySelector(".fooldalGomb");
 let macskak = document.querySelector(".macskakGomb");
 let orokbefogadas = document.querySelector(".orokbefogadasGomb");
 
-adminful.addEventListener("click", function () {
+fooldal.addEventListener("click", function () {
   clear();
-  document.querySelector(".adminful").style.display = "block";
+  document.querySelector(".fooldal").style.display = "block";
 });
 macskak.addEventListener("click", function () {
   clear();
@@ -24,4 +27,3 @@ orokbefogadas.addEventListener("click", function () {
   clear();
   document.querySelector(".orokbefogadas").style.display = "block";
 });
-

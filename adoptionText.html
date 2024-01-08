@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="./Img/favicon.ico">
+    <link rel="stylesheet" href="./CSS/bootstrap.min.css">
+    <script src="./JavaScript/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="./CSS/style.css">
+    <title>Örökbefogadási feltételek</title>
+</head>
+<body>  
+
+
+    <div>
+        <span class="adoptionText">
+   <p> Látjátuk feleim szümtükhel, mik vogymuk:</p>
+   
+    isȧ, por ës homou vogymuk. Mënyi milosztben terömtevé elevé miü isëmüköt Ádámot, ës aduttȧ valá neki pȧrȧdicsumot hȧzoá. Ës mënd pȧrȧdicsumben valou gyimilcsëktűl mondá neki élnië.
+        <br> Hëon tilutoá űt igy fá gyimilcsétűl. Gye mondoá neki, mérët nüm ënëik : isȧ, ki napon ëmdöl az gyimilcstűl, hȧlálnek hȧláláȧl holsz. Hȧdlȧvá holtát terömtevé Istentűl, gye feledevé. Engedé ürdüng intetüinek, ës ëvék az tilvot gyimilcstűl. Ës az gyimilcsben hȧlálut evék. Ës az gyimilcsnek úl keseröü valá vizë, hugy turkokȧt migé szakasztja val <br> Nüm hëon mogánek, gye mënd ű fajánek hȧlálut ëvék. Haraguvék Isten, ës vetevé űt ez munkás világ belé: és lëün hȧlálnek ës pukulnek fëszë, ës mënd ű nemének. Kik azok? Miü vogymuk. Hugy ës tiü látjátuk szümtükhel: isȧ, ës nüm igy embër múlhatjȧ ez vermöt, isȧ mënd azhuz járou vogymuk. Vimádjuk Uromk Isten këgyilmét ez lélekért, hugy jorgasson ű neki, ës kegyigy-gyën, ës bulcsássȧ mënd ű bűnét!
+
+Ës vimádjok szen[t] ȧhszin Máriát és boudog Miháël ȧrhȧngyëlt ës mënd ȧngyëlkot, hugy vimádjanak érëttë! Ës vimádjok szent Pétër urat, kinek adot hatalm oudaniȧ ës këtnië, hugy oudjȧ mënd ű bűnét! Ës vimádjok mënd szentököt, hugy lëgyenek neki segéd Uromk színë eleüt, hugy Isten iü vimádságok miá bulcsássȧ ű bűnét! Ës szobadohhȧ űt ürdüng ildetüitűl ës pukul kínzatujátúl, ës vezessë űt pȧrȧdicsum nyugalmȧ belí, ës adjon neki münyi uruszág belé utat ës mënd jouben részët! Ës kíássátuk Uromkhuz hármúl: kyrie eleison!</span>
+</div>
+
+<script>
+   
+var allowedKeys = {
+  73: 'i',
+  68: 'd',
+  81: 'q',
+};
+
+
+var CheatCode = ['i', 'd', 'd', 'q', 'd'];
+
+
+var cheatCodePosition = 0;
+
+
+document.addEventListener('keydown', function(e) {
+ 
+  var key = allowedKeys[e.keyCode];
+  var requiredKey = cheatCode[cheatCodePosition];
+
+
+  if (key == requiredKey) {
+
+    cheatCodePosition++;
+
+    
+    if (cheatCodePosition == cheatCode.length) {
+      activateCheats();
+      cheatCodePosition = 0;
+    }
+  } else {
+    cheatCodePosition = 0;
+  }
+});
+
+function activateCheats() {
+  document.body.style.backgroundImage = "url('Img/ee.jpg')";
+
+  var audio = new Audio('audio/pling.mp3');
+  audio.play();
+
+  alert("Rip 'n tear until its done");
+}
+</script>
+
+
+
+
+
+</body>
+</html>
