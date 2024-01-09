@@ -25,36 +25,42 @@ class Macska{
      getNem() {
         return this.#nem;
      }
+
+     getNemText() {
+      return this.#nem?"Hím":"Nőstény";
+     }
     
      getSzulNap() {
         return this.#szulNap;
      }
     
-     getdesc() {
+     getDesc() {
         return this.#desc;
      }
 
-     setNev(nev){
-        this.#nev(nev);
+     setNev(nev) {
+        this.#nev = nev;
      }
 
      setFajta(fajta){
-        this.#fajta(fajta);
+        this.#fajta = fajta;
      }
 
      setNem(nem){
-        this.#nem(nem);
+        this.#nem = nem;
      }
 
      setSzulNap(szulNap){
-        this.#szulNap(szulNap);
+        this.#szulNap = szulNap;
      }
 
      setDesc(desc){
-        this.#desc(desc);
+        this.#desc = desc;
      }
 
-     
+     toString() {
+      return "Macska neve: " + this.getNev + ", fajtája: " + this.getFajta + ", neme: " + this.getNemText + ", születésnapja: " + this.getSzulNap + ", rövid jellemzője: " +this.getDesc;
+     }
 
 
 }

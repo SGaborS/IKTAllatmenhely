@@ -1,6 +1,6 @@
 
 .nav-link:hover{
-    color: grey;
+    color: #fff;
 
 }
 
@@ -11,7 +11,7 @@
     
 }
 body{
-    background-color: #fff;
+    background-color: rgb(233, 233, 233);
 }
 
 .delete{
@@ -50,9 +50,8 @@ body{
 .addbutton:hover{
     border: 1px solid rgb(0,0,0);
     background-color: rgb(255,255,255);
-    border-radius: 5px;
-    transform: translateY(-2px);
-    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    
+   
     
     
 }
@@ -69,4 +68,45 @@ h5{
 
 .card {
     margin: 10px;
+}
+
+
+.search-btn{
+    background-color: #fff;
+    color: black;
+}
+
+.search-btn:hover{
+    background-color: inherit;
+    color: black;
+    border: 1px solid black;
+}
+
+
+.adopt{
+    background-color: #ffff;
+    border: 1px solid black;
+    padding: 15px
+}
+
+.adopt-btn{
+    background-color: rgb(207, 207, 207);
+    color: black;
+}
+
+.modal-body *{
+    margin: 3px;
+}
+
+.nav-item:hover{
+    background-color: grey;
+    color: #fff;
+
+}
+
+
+.card{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    border: 1px solid black;
+
 }

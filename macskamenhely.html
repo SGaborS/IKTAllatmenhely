@@ -8,13 +8,17 @@
     <link rel="stylesheet" href="./CSS/bootstrap.min.css">
     <script src="./JavaScript/bootstrap.min.js"></script>
     <script src="JavaScript/bootstrap.bundle.min.js"></script>
+    <script src="JavaScript/macska.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="./CSS/style.css">
     <title>Macskamenhely</title>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#"><img src="./Img/macskicon.png" alt="">
+          <a class="navbar-brand" href="#" onclick="fooldalMegjelenit()"><img src="./Img/macskicon.png" alt="">
             <span class="navbar-brand"> Macskamenhely</span></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -38,8 +42,8 @@
       </nav>
 
 
-
     <div class="menupont fooldal">
+      <br>
       <table class="table">
         <thead class="thead-dark">
           <tr>
@@ -51,128 +55,78 @@
             <th scope="col">Módosítás</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <th scope="row">Molly</th>
-            <td>Ocicat</td>
-            <td>Hím</td>
-            <td>2021-10-01</td>
-            <td>Félénk</td>
-            <td><button class="delete">Törlés</button><button class="edit">Módosítás</button></td>
-          </tr>
-          <tr>
-            <th scope="row">Garfield</th>
-            <td>Ocicat</td>
-            <td>Nőstény</td>
-            <td>2020-07-25</td>
-            <td>Félénk</td>
-            <td><button class="delete">Törlés</button><button class="edit">Módosítás</button></td>
-          </tr>
-          <tr>
-            <th scope="row">Simba</th>
-            <td>Brit rövidszőrű</td>
-            <td>Hím</td>
-            <td>2019-05-12</td>
-            <td>Energiadús</td>
-            <td><button class="delete">Törlés</button><button class="edit">Módosítás</button></td>
-          </tr>
-          <tr>
-            <th scope="row">Sanyi</th>
-            <td>Burma</td>
-            <td>Hím</td>
-            <td>2020-05-12</td>
-            <td>Játékos</td>
-            <td><button class="delete">Törlés</button><button class="edit">Módosítás</button></td>
-          </tr>
-
-          <tr>
-            <th scope="row">Cammogó</th>
-            <td>Egyiptomi mau</td>
-            <td>Nőstény</td>
-            <td>2022-08-20</td>
-            <td>Falánk</td>
-            <td><button class="delete">Törlés</button><button class="edit">Módosítás</button></td>
-          </tr>
-
-          <tr>
-            <th scope="row">Bibi</th>
-            <td>Házi macska</td>
-            <td>Nőstény</td>
-            <td>2023-04-15</td>
-            <td>Nagyon emberkedvelő</td>
-            <td><button class="delete">Törlés</button><button class="edit">Módosítás</button></td>
-          </tr>
-
-          <tr>
-            <th scope="row">Alfonz</th>
-            <td>Cymric</td>
-            <td>Hím</td>
-            <td>2021-09-15</td>
-            <td>Fürge</td>
-            <td><button class="delete">Törlés</button><button class="edit">Módosítás</button></td>
-          </tr>
-
-          <tr>
-            <th scope="row">Masni</th>
-            <td>Burmilla</td>
-            <td>Nőstény</td>
-            <td>2022-04-15</td>
-            <td>Bújós</td>
-            <td><button class="delete">Törlés</button><button class="edit">Módosítás</button></td>
-          </tr>
-
-          <tr>
-            <th scope="row">Eszmeralda</th>
-            <td>Egyiptomi mau</td>
-            <td>Nőstény</td>
-            <td>2023-06-18</td>
-            <td>Energiadús</td>
-            <td><button class="delete">Törlés</button><button class="edit">Módosítás</button></td>
-          </tr>
+        <tbody class="adminTable">
         </tbody>
       </table>
-      <button class="addbutton" type="button" data-bs-toggle="modal" data-bs-target="#macskaHozzaadModal">+</button>
+      <button class="addbutton" type="button" data-bs-toggle="modal" data-bs-target="#macskaHozzaadModal" onclick="clearForm()">+</button>
       
-        <div class="modal fade" id="macskaHozzaadModal" tabindex="-1" aria-labelledby="macskaHozzaad" aria-hidden="true">
-            <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                <h1 class="modal-title fs-5" id="macskaHozzaad">Macska hozzáadása</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                <h2>Nem végleges!</h2>
-                <label for="nev">Macska neve:</label>
-                <input type="text" id="nev"><br>
-                <label>Macska neme:</label>
-                <label for="him">Hím</label>
-                <input type="radio" name="nem" id="him">
-                <label for="nosteny">Nőstény</label>
-                <input type="radio" name="nem" id="nosteny"><br>
-                <label for="szulnap">Macska születésnapja:</label>
-                <select name="szulnap" id="szulnap">
-                    <option value="1">Valamikor</option>
-                </select><br>
-                <label for="jellem">Rövid jellemzés a macskáról:</label>
-                <input type="text" id="jellem">
+      
+      <div class="modal fade" id="macskaHozzaadModal" tabindex="-1" aria-labelledby="macskaHozzaad" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="macskaHozzaad">Macska hozzáadása</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <label for="nev">Macska neve:</label><br>
+              <input type="text" id="nev" class="nev form-clear"><br>
+              <label for="fajta">Macska fajtája:</label><br>
+              <input type="text" id="fajta" class="fajta form-clear"><br>
+              <label>Macska neme:</label><br>
+              <label for="him">Hím</label>
+              <input type="radio" name="nem" id="him" class="him form-uncheck">
+              <label for="nosteny">Nőstény</label>
+              <input type="radio" name="nem" id="nosteny" class="nosteny form-uncheck"><br>
+              <label>Macska születésnapja:</label><br>
+              <select name="szulnap-ev" id="szulnap-ev" class="szulnap-ev szul-nap">
+                  <option value="">----</option>
+              </select>
+              <select name="szulnap-ho" id="szulnap-ho" class="szulnap-ho szul-nap">
+                <option value="">--</option>
+              </select>
+              <select name="szulnap-nap" id="szulnap-nap" class="szulnap-nap szul-nap">
+                <option value="">--</option>
+              </select><br>
+              <label for="jellem">Rövid jellemzés a macskáról:</label><br>
+              <input type="text" id="jellem" class="jellem form-clear">
 
-                </div>
-                <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Mégse</button>
-                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Macska hozzáadása</button>
-                </div>
             </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Mégse</button>
+              <button type="button" class="btn btn-primary hozzaadGomb" data-bs-dismiss="modal" value="1" onclick="addMacska()">Macska hozzáadása</button>
             </div>
+          </div>
         </div>
+      </div>
+
+      <div class="modal fade" id="macskaTorolModal" tabindex="-1" aria-labelledby="macskaTorol" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="macskaTorol">Macska törlése</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <h2>Biztos törölni szeretnéd ezt a macskát?</h2>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Mégse</button>
+              <button type="button" class="btn btn-danger delGomb" data-bs-dismiss="modal">Macska törlése</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     
 
-    <div class="container mt-5 menupont macskak">
+    <div class="container mt-5 menupont macskak ">
         <h2 class="text-center mb-5">Gazdit keresünk</h2>
-        <div class="row">
+        <div class="row ui-widget">
             <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Kereső" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Keresés</button>
+    
+                <input class="form-control me-2" id="tags" type="search" placeholder="Kereső" aria-label="Search">
+                <button class="btn search-btn" type="submit">Keresés</button>
               
                   
                 
@@ -299,6 +253,7 @@
       </div>
 
       <div class="container menupont orokbefogadas mt-5">
+        <div class="adopt">
         <form class="row g-3">
           <div class="col-md-6 col-sm-12">
             <label for="nev" class="form-label">Örökbefogadó teljes neve</label>
@@ -314,26 +269,28 @@
             <h3 class="text-center">Kiválasztott macska</h2>
             <div class="container-fluid d-flex">
               <div class="col-5 m-auto">
-                <img src="Img/cica.jpg" alt="macksa" class="d-block w-100">
+                <img src="Img/catIco.jpg" alt="macksa" class="d-block w-100">
               </div>
               <div class="col-5 m-auto">
-                <p class="text-center">Macka</p>
-                <p>Született: 2020-05-13 (3 éves)</p>
-                <p>Fajta: Kerek</p>
-                <p>Leírás: Kerek </p>
+                <p class="text-center">Macska neve</p>
+                <p>Született:</p>
+                <p>Fajta:</p>
+                <p>Leírás </p>
               </div>
             </div>
-            <button type="button" class="btn btn-secondary m-auto d-block">Másik macska kiválasztása</button>
+            <button type="button" class="btn edit m-auto d-block">Másik macska kiválasztása</button>
           </div>
           <div class="col-12">
-            <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
-            <span>Az ügyfél elfogadja az <a href="#">örökbefogadási feltételeket</a></span>
-            <button class="btn btn-primary d-block m-auto" type="submit">Macska örökbefogadása</button>
+            <input class="adpot-btn" type="checkbox" required>
+            <span>Az ügyfél elfogadja az <a href="adoptionText.html">örökbefogadási feltételeket</a></span>
+            
+            <button class="btn addbutton d-block m-auto" type="submit">Macska örökbefogadása</button>
           </div>
         </form>
+        </div>
       </div>
 
-
 </body>
+<script src="JavaScript/insert.js"></script>
 <script src="JavaScript/script.js"></script>
 </html>
