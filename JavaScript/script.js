@@ -27,6 +27,8 @@ fooldal.addEventListener("click", function () {
 macskak.addEventListener("click", function () {
   clear();
   document.querySelector(".macskak").style.display = "block";
+  document.querySelector(".macskakTabla").innerHTML = "";
+  insertMacska();
 });
 orokbefogadas.addEventListener("click", function () {
   clear();
@@ -89,7 +91,8 @@ var availableTags = [
   "Fürge",
   "Bújós",
 
-];
+];/*
 $( "#tags" ).autocomplete({
   source: availableTags
 });
+*/

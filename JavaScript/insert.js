@@ -4,7 +4,7 @@ function insertTable() {
   let adminTable = document.querySelector(".adminTable");
   adminTable.innerHTML = "";
   for (let i = 0;i<menyhelyiMacskak.length;i++) {
-    adminTable.innerHTML += '<tr><th scope="row">'+menyhelyiMacskak[i].getNev()+'</th><td>'+menyhelyiMacskak[i].getFajta()+'</td><td>'+menyhelyiMacskak[i].getNemText()+'</td><td>'+menyhelyiMacskak[i].getSzulNap()+'</td><td>'+menyhelyiMacskak[i].getDesc()+'</td><td><button class="delete" data-bs-toggle="modal" data-bs-target="#macskaTorolModal" value="'+i+'" onclick="insertDelData()">Törlés</button><button value="'+i+'" class="edit" data-bs-toggle="modal" data-bs-target="#macskaHozzaadModal" onclick="insertModData()">Módosítás</button></td></tr>'
+    adminTable.innerHTML += '<tr><th scope="row">'+menyhelyiMacskak[i].getNev()+'</th><td>'+menyhelyiMacskak[i].getFajta()+'</td><td>'+menyhelyiMacskak[i].getNemText()+'</td><td>'+menyhelyiMacskak[i].getSzulNap()+'</td><td>'+menyhelyiMacskak[i].getDesc()+'</td><td><button class="delete" data-bs-toggle="modal" data-bs-target="#macskaTorolModal" value="'+i+'" onclick="insertDelData(event)">Törlés</button><button value="'+i+'" class="edit" data-bs-toggle="modal" data-bs-target="#macskaHozzaadModal" onclick="insertModData(event)">Módosítás</button></td></tr>'
   }
 }
 
@@ -27,7 +27,7 @@ function insertSzulNap() {
 
 }
 
-function insertModData() {
+function insertModData(event) {
   let button = event.target;
   index = button.value;
   document.querySelector(".nev").value = menyhelyiMacskak[index].getNev();
@@ -47,7 +47,7 @@ function insertModData() {
   document.querySelector(".hozzaadGomb").value = index;
 }
 
-function insertDelData() {
+function insertDelData(event) {
   let button = event.target;
   document.querySelector(".delGomb").value = button.value;
 }
@@ -65,5 +65,26 @@ function clearForm() {
   }
   for(let i = 0;i<szulNapok.length;i++) {
     szulNapok[i].selectedIndex=0;
+  }
+}
+
+function insertMacska() {
+  let macskak = document.querySelector(".macskakTabla");
+  for(let i = 0;i<menyhelyiMacskak.length;i++) {
+    macskak.innerHTML += 
+      `
+      <div class="col-md-4">
+        <div class="card">
+          <img src="./Img/macska${i+1}.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">${menyhelyiMacskak[i].getNev()}</h5>
+            <p class="card-text">Fajta: ${menyhelyiMacskak[i].getFajta()}</p>
+            <p class="card-text">Születési dátum: ${menyhelyiMacskak[i].getSzulNap()}</p>
+            <p class="card-text">Neme: ${menyhelyiMacskak[i].getNemText()}</p>
+            <p class="card-text">Rövid leírás: ${menyhelyiMacskak[i].getDesc()}</p>
+          </div>
+        </div>
+      </div>
+      `
   }
 }
