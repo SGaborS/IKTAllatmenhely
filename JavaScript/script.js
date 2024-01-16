@@ -20,6 +20,8 @@ let macskak = document.querySelector(".macskakGomb");
 let orokbefogadas = document.querySelector(".orokbefogadasGomb");
 let pluszGomb = document.querySelector(".addbutton");
 let delGomb = document.querySelector(".delGomb");
+let modalForm = new bootstrap.Modal(document.querySelector("#macskaHozzaadModal"));
+let sikerModal = new bootstrap.Modal(document.querySelector("#sikerModal"));
 
 fooldal.addEventListener("click", function () {
   fooldalMegjelenit();
@@ -36,13 +38,19 @@ orokbefogadas.addEventListener("click", function () {
 });
 pluszGomb.addEventListener("click", function () {
   document.querySelector(".hozzaadGomb").value = menyhelyiMacskak.length;
+  modalForm.show();
 });
 delGomb.addEventListener("click", function () {
+  sikerModal.show();
+  document.querySelector(".siker-title").innerHTML = "Sikeres törlés!";
+  document.querySelector(".siker-body").innerHTML = menyhelyiMacskak[delGomb.value].getNev()+" sikeresen kitörölve!";
   menyhelyiMacskak.splice(delGomb.value,1);
   fooldalMegjelenit();
 });
 
 function addMacska() {
+  if(!document.querySelector(".modalForm").reportValidity()) return;
+  modalForm.show();
   let button = document.querySelector(".hozzaadGomb");
   let nev = document.querySelector(".nev").value;
   let fajta = document.querySelector(".fajta").value;
@@ -55,6 +63,7 @@ function addMacska() {
   szulnap += "-"+(szulnapHo<10?"0"+szulnapHo:szulnapHo);
   szulnap += "-"+(szulnapNap<10?"0"+szulnapNap:szulnapNap);
   menyhelyiMacskak[button.value] = new Macska(nev, fajta, nem, szulnap, jellem);
+  modalForm.hide();
   fooldalMegjelenit();
 }
 

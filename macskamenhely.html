@@ -44,21 +44,23 @@
 
     <div class="menupont fooldal">
       <br>
-      <table class="table">
-        <thead class="thead-dark">
-          <tr>
-            <th scope="col">Név</th>
-            <th scope="col">Fajta</th>
-            <th scope="col">Neme</th>
-            <th scope="col">Születésnap</th>
-            <th scope="col">Rövid leírás</th>
-            <th scope="col">Módosítás</th>
-          </tr>
-        </thead>
-        <tbody class="adminTable">
-        </tbody>
-      </table>
-      <button class="addbutton" type="button" data-bs-toggle="modal" data-bs-target="#macskaHozzaadModal" onclick="clearForm()">+</button>
+      <div class="table-responsive">
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Név</th>
+              <th scope="col">Fajta</th>
+              <th scope="col">Neme</th>
+              <th scope="col">Születésnap</th>
+              <th scope="col">Rövid leírás</th>
+              <th scope="col">Módosítás</th>
+            </tr>
+          </thead>
+          <tbody class="adminTable">
+          </tbody>
+        </table>
+      </div>
+      <button class="addbutton" type="button" onclick="clearForm()">+</button>
       
       
       <div class="modal fade" id="macskaHozzaadModal" tabindex="-1" aria-labelledby="macskaHozzaad" aria-hidden="true">
@@ -68,34 +70,38 @@
               <h1 class="modal-title fs-5" id="macskaHozzaad">Macska hozzáadása</h1>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-              <label for="nev">Macska neve:</label><br>
-              <input type="text" id="nev" class="nev form-clear"><br>
-              <label for="fajta">Macska fajtája:</label><br>
-              <input type="text" id="fajta" class="fajta form-clear"><br>
-              <label>Macska neme:</label><br>
-              <label for="him">Hím</label>
-              <input type="radio" name="nem" id="him" class="him form-uncheck">
-              <label for="nosteny">Nőstény</label>
-              <input type="radio" name="nem" id="nosteny" class="nosteny form-uncheck"><br>
-              <label>Macska születésnapja:</label><br>
-              <select name="szulnap-ev" id="szulnap-ev" class="szulnap-ev szul-nap">
-                  <option value="">----</option>
-              </select>
-              <select name="szulnap-ho" id="szulnap-ho" class="szulnap-ho szul-nap">
-                <option value="">--</option>
-              </select>
-              <select name="szulnap-nap" id="szulnap-nap" class="szulnap-nap szul-nap">
-                <option value="">--</option>
-              </select><br>
-              <label for="jellem">Rövid jellemzés a macskáról:</label><br>
-              <input type="text" id="jellem" class="jellem form-clear">
+            <form onsubmit="return false;" class="m-auto text-center modalForm">
+              <div class="modal-body">
+                
+                  <label for="nev">Macska neve:</label><br>
+                  <input type="text" id="nev" class="nev form-clear" required><br>
+                  <label for="fajta">Macska fajtája:</label><br>
+                  <input type="text" id="fajta" class="fajta form-clear" required><br>
+                  <label>Macska neme:</label><br>
+                  <label for="him">Hím</label>
+                  <input type="radio" name="nem" id="him" class="him form-uncheck" required>
+                  <label for="nosteny">Nőstény</label>
+                  <input type="radio" name="nem" id="nosteny" class="nosteny form-uncheck" required><br>
+                  <label>Macska születésnapja:</label><br>
+                  <select name="szulnap-ev" id="szulnap-ev" class="szulnap-ev szul-nap" required>
+                      <option value="">Válasszon!</option>
+                  </select>
+                  <select name="szulnap-ho" id="szulnap-ho" class="szulnap-ho szul-nap" required>
+                    <option value="">Válasszon!</option>
+                  </select>
+                  <select name="szulnap-nap" id="szulnap-nap" class="szulnap-nap szul-nap" required>
+                    <option value="">Válasszon!</option>
+                  </select><br>
+                  <label for="jellem">Rövid jellemzés a macskáról:</label><br>
+                  <input type="text" id="jellem" class="jellem form-clear" required>
+                
 
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Mégse</button>
-              <button type="button" class="btn btn-primary hozzaadGomb" data-bs-dismiss="modal" value="1" onclick="addMacska()">Macska hozzáadása</button>
-            </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Mégse</button>
+                <button type="submit" class="btn btn-primary hozzaadGomb" value="1" onclick="addMacska()">Macska hozzáadása</button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
@@ -108,7 +114,8 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              <h2>Biztos törölni szeretnéd ezt a macskát?</h2>
+              <h4>Biztos törölni szeretnéd ezt a macskát?</h4>
+              <p class="macska-nev"></p>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Mégse</button>
@@ -118,6 +125,24 @@
         </div>
       </div>
     </div>
+
+    <div class="modal fade" id="sikerModal" tabindex="-1" aria-labelledby="siker" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5 siker-title" id="siker"></h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <h4 class="siker-body"></h4>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ok</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
     
 
     <div class="container mt-5 menupont macskak ">
@@ -127,134 +152,14 @@
     
                 <input class="form-control me-2" id="tags" type="search" placeholder="Kereső" aria-label="Search">
                 <button class="btn search-btn" type="submit">Keresés</button>
-              
-                  
                 
               </form>
-          <div class="col-md-4">
-            <div class="card">
-              <img src="./Img/macska1.jpg" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Molly</h5>
-                <p class="card-text">Születési dátum: 2021.10.01.</p>
-                <p class="card-text">Szín: sárga-fehér</p>
-                <p class="card-text">Neme: Hím</p>
-                <p class="card-text">Fajta: Ocicat</p>
-                <p class="card-text">rövid leírás: Félénk</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card">
-              <img src="./Img/macska2.jpg" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Garfield</h5>
-                <p class="card-text">Születési dátum: 2020.07.25.</p>
-                <p class="card-text">Szín: fehér-barna</p>
-                <p class="card-text">Neme: Nőstény</p>
-                <p class="card-text">Fajta: Ocicat</p>
-                <p class="card-text">rövid leírás: Félénk</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card">
-              <img src="./Img/macska3.jpg" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Simba</h5>
-                <p class="card-text">Születési dátum: 2019.05.12.</p>
-                <p class="card-text">Szín: fehér-szűrke</p>
-                <p class="card-text">Neme: Hím</p>
-                <p class="card-text">Fajta: Brit rövidszőrű</p>
-                <p class="card-text">rövid leírás: Energiadús</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card">
-              <img src="./Img/macska4.jpg" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Sanyi</h5>
-                <p class="card-text">Születési dátum: 2020.05.12.</p>
-                <p class="card-text">Szín: fehér-fekete</p>
-                <p class="card-text">Neme: Hím</p>
-                <p class="card-text">Fajta: Burma</p>
-                <p class="card-text">rövid leírás: Játékos</p>
-                
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card">
-              <img src="./Img/macska5.jpg" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Cammogó</h5>
-                <p class="card-text">Születési dátum: 2022.08.20.</p>
-                <p class="card-text">Szín: fehér-barna</p>
-                <p class="card-text">Neme: Nőstény</p>
-                <p class="card-text">Fajta: Egyiptomi mau</p>
-                <p class="card-text">rövid leírás: Falánk</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card">
-              <img src="./Img/macska6.jpg" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Bibi</h5>
-                <p class="card-text">Születési dátum: 2023.04.15.</p>
-                <p class="card-text">Szín: fehér-sárga</p>
-                <p class="card-text">Neme: Nőstény</p> 
-                <p class="card-text">Fajta: Házi Macska</p>   
-                <p class="card-text">rövid leírás: Emberkevelő</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card">
-              <img src="./Img/macska7.jpg" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Alfonz</h5>
-                <p class="card-text">Születési dátum: 2021.09.15.</p>
-                <p class="card-text">Szín: fehér-fekete</p>
-                <p class="card-text">Neme: Hím</p>  
-                <p class="card-text">Fajta: Cymric</p>  
-                <p class="card-text">rövid leírás: Fürge</p> 
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card">
-              <img src="./Img/macska8.jpg" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Masni</h5>
-                <p class="card-text">Születési dátum: 2022.04.15.</p>
-                <p class="card-text">Szín: fehér-szűrke</p>
-                <p class="card-text">Neme: Nőstény</p>   
-                <p class="card-text">Fajta: Burmilla</p> 
-                <p class="card-text">rövid leírás: Bújós</p> 
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card">
-              <img src="./Img/macska9.jpg" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Eszmeralda</h5>
-                <p class="card-text">Születési dátum: 2023.06.18.</p>
-                <p class="card-text">Szín: fehér-szűrke</p>
-                <p class="card-text">Neme: Nőstény</p>  
-                <p class="card-text">Fajta: Egyiptomi mau</p>  
-                <p class="card-text">rövid leírás: Energiadús</p> 
-              </div>
-            </div>
-          </div>
         </div>
       </div>
 
       <div class="container menupont orokbefogadas mt-5">
         <div class="adopt">
-        <form class="row g-3">
+        <form class="row g-3" onsubmit="return false;">
           <div class="col-md-6 col-sm-12">
             <label for="nev" class="form-label">Örökbefogadó teljes neve</label>
             <input type="text" class="form-control" id="nev" required>
@@ -284,7 +189,7 @@
             <input class="adpot-btn" type="checkbox" required>
             <span>Az ügyfél elfogadja az <a href="adoptionText.html">örökbefogadási feltételeket</a></span>
             
-            <button class="btn addbutton d-block m-auto" type="submit">Macska örökbefogadása</button>
+            <button class="btn d-block m-auto" type="submit">Macska örökbefogadása</button>
           </div>
         </form>
         </div>

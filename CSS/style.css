@@ -110,3 +110,8 @@ h5{
     border: 1px solid black;
 
 }
+
+.modalForm {
+    width: fit-content;
+    padding-right: 25px;
+}

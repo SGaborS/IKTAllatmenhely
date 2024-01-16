@@ -4,7 +4,7 @@ function insertTable() {
   let adminTable = document.querySelector(".adminTable");
   adminTable.innerHTML = "";
   for (let i = 0;i<menyhelyiMacskak.length;i++) {
-    adminTable.innerHTML += '<tr><th scope="row">'+menyhelyiMacskak[i].getNev()+'</th><td>'+menyhelyiMacskak[i].getFajta()+'</td><td>'+menyhelyiMacskak[i].getNemText()+'</td><td>'+menyhelyiMacskak[i].getSzulNap()+'</td><td>'+menyhelyiMacskak[i].getDesc()+'</td><td><button class="delete" data-bs-toggle="modal" data-bs-target="#macskaTorolModal" value="'+i+'" onclick="insertDelData(event)">Törlés</button><button value="'+i+'" class="edit" data-bs-toggle="modal" data-bs-target="#macskaHozzaadModal" onclick="insertModData(event)">Módosítás</button></td></tr>'
+    adminTable.innerHTML += '<tr><th scope="row">'+menyhelyiMacskak[i].getNev()+'</th><td>'+menyhelyiMacskak[i].getFajta()+'</td><td>'+menyhelyiMacskak[i].getNemText()+'</td><td>'+menyhelyiMacskak[i].getSzulNap()+'</td><td>'+menyhelyiMacskak[i].getDesc()+'</td><td><button class="delete" data-bs-toggle="modal" data-bs-target="#macskaTorolModal" value="'+i+'" onclick="insertDelData(event)">Törlés</button><button value="'+i+'" class="edit" onclick="insertModData(event)">Módosítás</button></td></tr>'
   }
 }
 
@@ -28,6 +28,7 @@ function insertSzulNap() {
 }
 
 function insertModData(event) {
+  modalForm.show();
   let button = event.target;
   index = button.value;
   document.querySelector(".nev").value = menyhelyiMacskak[index].getNev();
@@ -50,6 +51,8 @@ function insertModData(event) {
 function insertDelData(event) {
   let button = event.target;
   document.querySelector(".delGomb").value = button.value;
+  let p = document.querySelector(".macska-nev");
+  p.innerHTML = menyhelyiMacskak[button.value];
 }
 
 function clearForm() {

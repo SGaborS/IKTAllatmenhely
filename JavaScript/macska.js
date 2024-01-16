@@ -4,6 +4,7 @@ class Macska{
     #nem;
     #szulNap;
     #desc;
+    #orokbefogadva;
 
 
     constructor(nev, fajta, nem, szulNap, desc) {
@@ -12,6 +13,7 @@ class Macska{
         this.setNem(nem);
         this.setSzulNap(szulNap);
         this.setDesc(desc);
+        this.setOrokbefogadva(false);
      }
     
      getNev() {
@@ -38,6 +40,10 @@ class Macska{
         return this.#desc;
      }
 
+     getOrokbefogadva() {
+        return this.#orokbefogadva;
+     }
+
      setNev(nev) {
         this.#nev = nev;
      }
@@ -57,9 +63,13 @@ class Macska{
      setDesc(desc){
         this.#desc = desc;
      }
+     
+     setOrokbefogadva(orokbefogadva){
+        this.#orokbefogadva = orokbefogadva;
+     }
 
      toString() {
-      return "Macska neve: " + this.getNev + ", fajtája: " + this.getFajta + ", neme: " + this.getNemText + ", születésnapja: " + this.getSzulNap + ", rövid jellemzője: " +this.getDesc;
+      return "Macska neve: " + this.getNev() + "<br>Fajtája: " + this.getFajta() + "<br>Neme: " + this.getNemText() + "<br>Születésnapja: " + this.getSzulNap() + "<br>Rövid jellemzője: " +this.getDesc();
      }
 
 
