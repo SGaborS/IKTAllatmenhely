@@ -40,6 +40,8 @@ orokbefogadas.addEventListener("click", function () {
 });
 pluszGomb.addEventListener("click", function () {
   document.querySelector(".hozzaadGomb").value = menyhelyiMacskak.length;
+  document.querySelector(".hozzaadGomb").innerHTML = "Macska hozzáadása";
+  document.querySelector("#macskaHozzaad").innerHTML = "Macska hozzáadása";
   modalForm.show();
 });
 delGomb.addEventListener("click", function () {
@@ -72,6 +74,7 @@ orokbefogadGomb.addEventListener("click", function () {
     <p>Fajta:</p>
     <p>Leírás </p>
   </div>`
+  clearForm();
 });
 
 function addMacska() {
@@ -90,6 +93,16 @@ function addMacska() {
   szulnap += "-"+(szulnapNap<10?"0"+szulnapNap:szulnapNap);
   menyhelyiMacskak[button.value] = new Macska(nev, fajta, nem, szulnap, jellem);
   modalForm.hide();
+  if(button.value==menyhelyiMacskak.length-1) {
+    sikerModal.show();
+    document.querySelector(".siker-title").innerHTML = "Sikeres hozzáadás!";
+    document.querySelector(".siker-body").innerHTML = menyhelyiMacskak[button.value].getNev()+" sikeresen hozzáadva!";
+  }
+  else {
+    sikerModal.show();
+    document.querySelector(".siker-title").innerHTML = "Sikeres módosítás!";
+    document.querySelector(".siker-body").innerHTML = menyhelyiMacskak[button.value].getNev()+" sikeresen módosítva!";
+  }
   fooldalMegjelenit();
 }
 
