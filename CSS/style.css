@@ -11,7 +11,7 @@
     
 }
 body{
-    background-color: rgb(233, 233, 233);
+    background-color: rgb(218, 250, 225);
 }
 
 .delete{
@@ -114,4 +114,11 @@ h5{
 .modalForm {
     width: fit-content;
     padding-right: 25px;
+}
+
+
+.ui-widget{
+    width: 25%;
+    padding: 5px;
+    padding-top: 10px;
 }
