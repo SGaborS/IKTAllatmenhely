@@ -61,7 +61,22 @@
         </table>
       </div>
       <button class="addbutton" type="button" onclick="clearForm()">+</button>
-      
+      <div class="table-responsive mt-5">
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Név</th>
+              <th scope="col">Fajta</th>
+              <th scope="col">Neme</th>
+              <th scope="col">Születésnap</th>
+              <th scope="col">Rövid leírás</th>
+              <th scope="col">Módosítás</th>
+            </tr>
+          </thead>
+          <tbody class="orokbefogadottTable">
+          </tbody>
+        </table>
+      </div>
       
       <div class="modal fade" id="macskaHozzaadModal" tabindex="-1" aria-labelledby="macskaHozzaad" aria-hidden="true">
         <div class="modal-dialog">
@@ -160,7 +175,7 @@
 
       <div class="container menupont orokbefogadas mt-5">
         <div class="adopt">
-        <form class="row g-3" onsubmit="return false;">
+        <form class="row g-3 orokbefogadasForm" onsubmit="return false;">
           <div class="col-md-6 col-sm-12">
             <label for="nev" class="form-label">Örökbefogadó teljes neve</label>
             <input type="text" class="form-control" id="nev" required>
@@ -173,9 +188,9 @@
           </div>
           <div class="col-md-6 col-sm-12">
             <h3 class="text-center">Kiválasztott macska</h2>
-            <div class="container-fluid d-flex">
+            <div class="container-fluid d-flex adoptMacska m-5">
               <div class="col-5 m-auto">
-                <img src="Img/catIco.jpg" alt="macksa" class="d-block w-100">
+                <img src="Img/catIco.jpg" class="d-block w-100">
               </div>
               <div class="col-5 m-auto">
                 <p class="text-center">Macska neve</p>
@@ -184,13 +199,13 @@
                 <p>Leírás </p>
               </div>
             </div>
-            <button type="button" class="btn edit m-auto d-block">Másik macska kiválasztása</button>
+            <button type="button" class="btn m-auto d-block masikMacska">Másik macska kiválasztása</button>
           </div>
           <div class="col-12">
             <input class="adpot-btn" type="checkbox" required>
             <span>Az ügyfél elfogadja az <a href="adoptionText.html">örökbefogadási feltételeket</a></span>
             
-            <button class="btn d-block m-auto" type="submit">Macska örökbefogadása</button>
+            <button class="btn d-block m-auto orokbefogad" type="submit">Macska örökbefogadása</button>
           </div>
         </form>
         </div>

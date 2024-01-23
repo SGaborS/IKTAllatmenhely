@@ -3,8 +3,32 @@ let menyhelyiMacskak = [new Macska("Molly","Ocicat",true,"2021-10-01","Félénk"
 function insertTable() {
   let adminTable = document.querySelector(".adminTable");
   adminTable.innerHTML = "";
+  let adoptTable = document.querySelector(".orokbefogadottTable");
+  adoptTable.innerHTML = "";
+  let macskaString;
   for (let i = 0;i<menyhelyiMacskak.length;i++) {
-    adminTable.innerHTML += '<tr><th scope="row">'+menyhelyiMacskak[i].getNev()+'</th><td>'+menyhelyiMacskak[i].getFajta()+'</td><td>'+menyhelyiMacskak[i].getNemText()+'</td><td>'+menyhelyiMacskak[i].getSzulNap()+'</td><td>'+menyhelyiMacskak[i].getDesc()+'</td><td><button class="delete" data-bs-toggle="modal" data-bs-target="#macskaTorolModal" value="'+i+'" onclick="insertDelData(event)">Törlés</button><button value="'+i+'" class="edit" onclick="insertModData(event)">Módosítás</button></td></tr>'
+    macskaString = `<tr>
+    <th scope="row">${menyhelyiMacskak[i].getNev()}</th>
+    <td>${menyhelyiMacskak[i].getFajta()}</td>
+    <td>${menyhelyiMacskak[i].getNemText()}</td>
+    <td>${menyhelyiMacskak[i].getSzulNap()}</td>
+    <td>${menyhelyiMacskak[i].getDesc()}</td>
+    `
+    if (!menyhelyiMacskak[i].getOrokbefogadva()) {
+      macskaString+= `<td>
+      <button class="delete" data-bs-toggle="modal" data-bs-target="#macskaTorolModal" value="${i}" onclick="insertDelData(event)">Törlés</button>
+      <button value="${i}" class="edit" onclick="insertModData(event)">Módosítás</button>
+    </td>
+  </tr>`
+      adminTable.innerHTML += macskaString;
+    }
+    else {
+      macskaString += `<td>
+      <button class="delete" data-bs-toggle="modal" data-bs-target="#macskaTorolModal" value="${i}" onclick="insertDelData(event)">Törlés</button>
+      </td>
+      </tr>`
+      adoptTable.innerHTML += macskaString;
+    }
   }
 }
 
@@ -74,7 +98,8 @@ function clearForm() {
 function insertMacska() {
   let macskak = document.querySelector(".macskakTabla");
   for(let i = 0;i<menyhelyiMacskak.length;i++) {
-    macskak.innerHTML += 
+    if(!menyhelyiMacskak[i].getOrokbefogadva()) {
+      macskak.innerHTML += 
       `
       <div class="col-md-4">
         <div class="card">
@@ -85,9 +110,30 @@ function insertMacska() {
             <p class="card-text">Születési dátum: ${menyhelyiMacskak[i].getSzulNap()}</p>
             <p class="card-text">Neme: ${menyhelyiMacskak[i].getNemText()}</p>
             <p class="card-text">Rövid leírás: ${menyhelyiMacskak[i].getDesc()}</p>
+            <button class="btn btn-secondary" value="${i}" onclick="insertAdopt(event);">Örökbefogadás</button>
           </div>
         </div>
       </div>
       `
+    }
   }
+}
+
+function insertAdopt(event) {
+  let button = event.target;
+  let index = parseInt(button.value);
+  let macska = menyhelyiMacskak[index];
+  document.querySelector(".adoptMacska").innerHTML = `
+  <div class="col-5 m-auto">
+    <img src="Img/macska${(index+1)}.jpg" class="d-block w-100">
+  </div>
+  <div class="col-5 m-auto">
+    <p class="text-center">${macska.getNev()}</p>
+    <p>Született: ${macska.getSzulNap()}</p>
+    <p>Fajta: ${macska.getFajta()}</p>
+    <p>${macska.getDesc()}</p>
+  </div>
+  `
+  orokbefogadGomb.value = index;
+  orokbefogadas.click();
 }

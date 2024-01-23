@@ -22,6 +22,8 @@ let pluszGomb = document.querySelector(".addbutton");
 let delGomb = document.querySelector(".delGomb");
 let modalForm = new bootstrap.Modal(document.querySelector("#macskaHozzaadModal"));
 let sikerModal = new bootstrap.Modal(document.querySelector("#sikerModal"));
+let masikMacska = document.querySelector(".masikMacska");
+let orokbefogadGomb = document.querySelector(".orokbefogad");
 
 fooldal.addEventListener("click", function () {
   fooldalMegjelenit();
@@ -46,6 +48,12 @@ delGomb.addEventListener("click", function () {
   document.querySelector(".siker-body").innerHTML = menyhelyiMacskak[delGomb.value].getNev()+" sikeresen kitörölve!";
   menyhelyiMacskak.splice(delGomb.value,1);
   fooldalMegjelenit();
+});
+masikMacska.addEventListener("click", function () {macskak.click()});
+orokbefogadGomb.addEventListener("click", function () {
+  if(!document.querySelector(".orokbefogadasForm").reportValidity()) return;
+  let index = this.value;
+  menyhelyiMacskak[index].setOrokbefogadva(true);
 });
 
 function addMacska() {
