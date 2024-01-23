@@ -126,7 +126,7 @@ var availableTags = [
   "Fürge",
   "Bújós",
 
-];/*
+];
 $( ".tags" ).autocomplete({
   source: availableTags
-});*/
+});
