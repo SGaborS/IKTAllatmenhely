@@ -61,21 +61,24 @@
         </table>
       </div>
       <button class="addbutton" type="button" onclick="clearForm()">+</button>
-      <div class="table-responsive mt-5">
-        <table class="table">
-          <thead class="thead-dark">
-            <tr>
-              <th scope="col">Név</th>
-              <th scope="col">Fajta</th>
-              <th scope="col">Neme</th>
-              <th scope="col">Születésnap</th>
-              <th scope="col">Rövid leírás</th>
-              <th scope="col">Módosítás</th>
-            </tr>
-          </thead>
-          <tbody class="orokbefogadottTable">
-          </tbody>
-        </table>
+      <div class="orokbefogadottak d-none mt-5">
+        <h2>Örökbefogadott Macskák</h2>
+        <div class="table-responsive mt-1">
+          <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Név</th>
+                <th scope="col">Fajta</th>
+                <th scope="col">Neme</th>
+                <th scope="col">Születésnap</th>
+                <th scope="col">Rövid leírás</th>
+                <th scope="col">Módosítás</th>
+              </tr>
+            </thead>
+            <tbody class="orokbefogadottTable">
+            </tbody>
+          </table>
+        </div>
       </div>
       
       <div class="modal fade" id="macskaHozzaadModal" tabindex="-1" aria-labelledby="macskaHozzaad" aria-hidden="true">
@@ -205,7 +208,7 @@
             <input class="adpot-btn" type="checkbox" required>
             <span>Az ügyfél elfogadja az <a href="adoptionText.html">örökbefogadási feltételeket</a></span>
             
-            <button class="btn d-block m-auto orokbefogad" type="submit">Macska örökbefogadása</button>
+            <button class="btn d-block m-auto orokbefogad" type="submit" value="-1">Macska örökbefogadása</button>
           </div>
         </form>
         </div>

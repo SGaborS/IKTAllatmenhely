@@ -46,14 +46,32 @@ delGomb.addEventListener("click", function () {
   sikerModal.show();
   document.querySelector(".siker-title").innerHTML = "Sikeres törlés!";
   document.querySelector(".siker-body").innerHTML = menyhelyiMacskak[delGomb.value].getNev()+" sikeresen kitörölve!";
+  if(menyhelyiMacskak[delGomb.value].getOrokbefogadva()) {
+    let orokbefogadott = 0;
+    for(let i = 0;i<menyhelyiMacskak.length;i++) {
+      if(menyhelyiMacskak[i].getOrokbefogadva()) orokbefogadott++;
+    }
+    if(orokbefogadott == 1) document.querySelector(".orokbefogadottak").classList.add("d-none");
+  }
   menyhelyiMacskak.splice(delGomb.value,1);
   fooldalMegjelenit();
 });
 masikMacska.addEventListener("click", function () {macskak.click()});
 orokbefogadGomb.addEventListener("click", function () {
-  if(!document.querySelector(".orokbefogadasForm").reportValidity()) return;
+  if(!document.querySelector(".orokbefogadasForm").reportValidity()||this.value==-1) return;
   let index = this.value;
+  this.value = "-1";
   menyhelyiMacskak[index].setOrokbefogadva(true);
+  document.querySelector(".adoptMacska").innerHTML = `
+  <div class="col-5 m-auto">
+    <img src="Img/catIco.jpg" class="d-block w-100">
+  </div>
+  <div class="col-5 m-auto">
+    <p class="text-center">Macska neve</p>
+    <p>Született:</p>
+    <p>Fajta:</p>
+    <p>Leírás </p>
+  </div>`
 });
 
 function addMacska() {

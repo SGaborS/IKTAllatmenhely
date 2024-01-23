@@ -23,6 +23,7 @@ function insertTable() {
       adminTable.innerHTML += macskaString;
     }
     else {
+      document.querySelector(".orokbefogadottak").classList.remove("d-none");
       macskaString += `<td>
       <button class="delete" data-bs-toggle="modal" data-bs-target="#macskaTorolModal" value="${i}" onclick="insertDelData(event)">Törlés</button>
       </td>
