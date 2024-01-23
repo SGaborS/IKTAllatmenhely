@@ -11,7 +11,7 @@
     
 }
 body{
-    background-color: rgb(218, 250, 225);
+    background-color: rgb(241, 217, 255);
 }
 
 .delete{
@@ -40,16 +40,17 @@ body{
 }
 
 .addbutton{
-    border: 1px solid  rgb(0,0,0);
-    background-color: rgb(212, 212, 212);
+    border: 1px solid  rgb(192, 136, 238);
+    background-color: rgb(192, 136, 238);
     border-radius: 5px;
     margin-left: 15px;
+    color: #fff;
 }
 
 
 .addbutton:hover{
-    border: 1px solid rgb(0,0,0);
-    background-color: rgb(255,255,255);
+    border: 1px solid rgb(213, 158, 245);
+    background-color: rgb(213, 158, 245);
     
    
     
@@ -68,6 +69,7 @@ h5{
 
 .card {
     margin: 10px;
+    color: rgb(102, 0, 128);
 }
 
 
@@ -121,4 +123,66 @@ h5{
     width: 25%;
     padding: 5px;
     padding-top: 10px;
+}
+
+.orokbefogad{
+    background-color: rgb(241, 217, 255);
+    border: rgb(241, 217, 255) 1px solid;
+
+}
+
+.orokbefogad:hover{
+    background-color: rgb(192, 136, 238);
+    color: white;
+   
+}
+
+.masikMacska{
+    background-color: rgb(241, 217, 255);
+    border: rgb(241, 217, 255) 1px solid;
+}
+
+.masikMacska:hover{
+    background-color: rgb(192, 136, 238);
+    color: #fff;
+    
+}
+
+a{
+    color: rgb(168, 68, 250);
+}
+
+.btn-secondary{
+    background-color: rgb(241, 217, 255) ;
+    color: black;
+    border: rgb(241, 217, 255) 1px solid;
+}
+
+.btn-secondary:hover{
+    background-color: rgb(192, 136, 238);
+    color: #fff;
+    border: 1px solid rgb(192, 136, 238);
+    
+}
+
+
+
+.fooldalGomb:hover{
+    color: #fff;
+    background-color:rgb(192, 136, 238) ;
+}
+
+
+
+
+.macskakGomb:hover{
+    color: #fff;
+    background-color:rgb(192, 136, 238) ;
+}
+
+
+
+.orokbefogadasGomb:hover{
+    color: #fff;
+    background-color:rgb(192, 136, 238) ;
 }
