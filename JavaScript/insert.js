@@ -71,6 +71,8 @@ function insertModData(event) {
   document.querySelector(".szulnap-ho").selectedIndex = parseInt(szulnap[1]);
   document.querySelector(".szulnap-nap").selectedIndex = parseInt(szulnap[2]);
   document.querySelector(".hozzaadGomb").value = index;
+  document.querySelector(".hozzaadGomb").innerHTML = 'Macska módosítása';
+  document.querySelector("#macskaHozzaad").innerHTML = 'Macska módosítása';
 }
 
 function insertDelData(event) {
