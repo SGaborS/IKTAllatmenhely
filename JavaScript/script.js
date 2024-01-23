@@ -101,7 +101,6 @@ var availableTags = [
   "Bújós",
 
 ];/*
-$( "#tags" ).autocomplete({
+$( ".tags" ).autocomplete({
   source: availableTags
-});
-*/
+});*/
