@@ -60,7 +60,14 @@ delGomb.addEventListener("click", function () {
 });
 masikMacska.addEventListener("click", function () {macskak.click()});
 orokbefogadGomb.addEventListener("click", function () {
+  if(this.value==-1){
+    let modalNoMacska = new bootstrap.Modal(document.querySelector("#modalNoMacska"));
+    modalNoMacska.show();
+    
+  }
   if(!document.querySelector(".orokbefogadasForm").reportValidity()||this.value==-1) return;
+  let modalMacskaSikeres = new bootstrap.Modal(document.querySelector("#modalMacskaSikeres"));
+  modalMacskaSikeres.show();
   let index = this.value;
   this.value = "-1";
   menyhelyiMacskak[index].setOrokbefogadva(true);
