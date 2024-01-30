@@ -207,44 +207,43 @@
                 <p>Leírás </p>
               </div>
             </div>
-            <div class="modal" tabindex="-1" role="dialog" id="modalNoMacska">
-              <div class="modal-dialog" role="document">
+            <div class="modal fade" id="modalNoMacska" tabindex="-1" aria-labelledby="noMacska" aria-hidden="true">
+              <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title">HIBA!</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
+                    <h1 class="modal-title fs-5 noMacska-title" id="noMacska">HIBA!</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
                     <p>Nem választott ki macskát!</p>
                   </div>
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Bezár</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ok</button>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="modal" tabindex="-1" role="dialog" id="modalMacskaSikeres">
-              <div class="modal-dialog" role="document">
+
+            <div class="modal fade" id="modalMacskaSikeres" tabindex="-1" aria-labelledby="macskaSikeres" aria-hidden="true">
+              <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title">ÖRÖKBEFOGADÁS SIKERES!</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
+                    <h1 class="modal-title fs-5 macskaSikeres-title" id="macskaSikeres">ÖRÖKBEFOGADÁS SIKERES!</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
                     <p>Az örökbefogadás sikeresen megtörtént!</p>
                   </div>
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Bezár</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ok</button>
                   </div>
                 </div>
               </div>
             </div>
             <button type="button" class="btn m-auto d-block masikMacska">Másik macska kiválasztása</button>
           </div>
+
+
           <div class="col-12">
             <input class="adopt-btn form-uncheck" type="checkbox" required>
             <span>Az ügyfél elfogadja az <a href="adoptionText.html">örökbefogadási feltételeket</a></span>
