@@ -67,12 +67,6 @@ h5{
     text-align: center;
 }
 
-.card {
-    margin: 10px;
-    color: rgb(102, 0, 128);
-    border: none;
-}
-
 
 .search-btn{
     background-color: #fff;
@@ -110,7 +104,10 @@ h5{
 
 .card{
     font-family:Verdana, Geneva, Tahoma, sans-serif;
-    border: 1px solid black;
+    margin: 10px;
+    color: rgb(102, 0, 128);
+    border: none;
+   
 
 }
 
