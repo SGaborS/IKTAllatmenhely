@@ -106,7 +106,7 @@ function insertMacska() {
       `
       <div class="col-md-4">
         <div class="card">
-          <img src="./Img/macska${i+1}.jpg" class="card-img-top" alt="...">
+          <img src="./Img/macska${i%9+1}.jpg" class="card-img-top" alt="...">
           <div class="card-body">
             <h5 class="card-title">${menyhelyiMacskak[i].getNev()}</h5>
             <p class="card-text">Fajta: ${menyhelyiMacskak[i].getFajta()}</p>
