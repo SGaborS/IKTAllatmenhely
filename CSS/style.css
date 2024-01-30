@@ -28,15 +28,15 @@ body{
 }
 
 .edit{
-    background-color: rgb(212, 212, 212);
-    border: 1px solid rgb(212, 212, 212);
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(0, 0, 0);
 
 }
 
 .edit:hover{
-    background-color: rgb(255,255,255);
-    border: 1px solid rgb(0,0,0);
-    color: rgb(0,0,0);
+    background-color: rgb(192, 136, 238);
+    border: 1px solid rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
 }
 
 .addbutton{
@@ -70,6 +70,7 @@ h5{
 .card {
     margin: 10px;
     color: rgb(102, 0, 128);
+    border: none;
 }
 
 
@@ -153,8 +154,8 @@ a{
 }
 
 .btn-secondary{
-    background-color: rgb(241, 217, 255) ;
-    color: black;
+    background-color: rgb(225, 173, 255) ;
+    color: rgb(255, 255, 255);
     border: rgb(241, 217, 255) 1px solid;
 }
 
