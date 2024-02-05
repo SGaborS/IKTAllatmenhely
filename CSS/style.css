@@ -152,6 +152,11 @@ a{
     color: rgb(168, 68, 250);
 }
 
+table a {
+    font-size: large;
+    color: #000;
+}
+
 .btn-secondary{
     background-color: rgb(225, 173, 255) ;
     color: rgb(255, 255, 255);
@@ -208,9 +213,13 @@ a{
 
 
 .footer{
-    margin-top: 250px;
+    margin-top: 150px;
 }
 
 .adopted-row td, .adopted-row th {
     background-color: rgb(212, 212, 212) !important;
+}
+
+.w-fit-content {
+    width: fit-content;
 }

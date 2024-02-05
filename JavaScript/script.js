@@ -49,6 +49,7 @@ delGomb.addEventListener("click", function () {
   document.querySelector(".siker-title").innerHTML = "Sikeres törlés!";
   document.querySelector(".siker-body").innerHTML = menyhelyiMacskak[delGomb.value].getNev()+" sikeresen kitörölve!";
   menyhelyiMacskak.splice(delGomb.value,1);
+  updateAvailableTags();
   fooldalMegjelenit();
 });
 masikMacska.addEventListener("click", function () {macskak.click()});
@@ -92,7 +93,7 @@ function addMacska() {
   let szulnap = szulnapEv;
   szulnap += "-"+(szulnapHo<10?"0"+szulnapHo:szulnapHo);
   szulnap += "-"+(szulnapNap<10?"0"+szulnapNap:szulnapNap);
-  menyhelyiMacskak[button.value] = new Macska(nev, fajta, nem, szulnap, jellem);
+  menyhelyiMacskak[button.value] = new Macska(nev, fajta, nem, szulnap, jellem, "");
   modalForm.hide();
   updateAvailableTags();
   if(hozzaadas) {
@@ -108,13 +109,22 @@ function addMacska() {
   fooldalMegjelenit();
 }
 
-function search(event) {
-  let search = event.target.value.toLowerCase();
+function search() {
+  let search = document.querySelector(".tags").value.toLowerCase();
   let rows = document.querySelectorAll("tbody tr");
   for(let i = 0; i<menyhelyiMacskak.length;i++) {
     if(!menyhelyiMacskak[i].isSearchedFor(search)&&search!="") rows[i].style.display = "none";
     else rows[i].style.display = "table-row";
   }
+}
+
+function szures(event, tulajdonsag) {
+  let element = event.target;
+  if(element.value==undefined) element.value = true;
+  menyhelyiMacskak.sort(Macska.fuggvenyASorthoz(tulajdonsag, element.value));
+  element.value = !element.value;
+  fooldalMegjelenit();
+  search();
 }
 
 function updateAvailableTags() {
@@ -123,38 +133,16 @@ function updateAvailableTags() {
   for(let i = 0; i<menyhelyiMacskak.length;i++) {
     attrs = menyhelyiMacskak[i].getAllAttrs();
     for(let x = 0; x < attrs.length; x++) {
-      if(!availableTags.includes(attrs[i])) availableTags.push(attrs[i]);
+      if(!availableTags.includes(attrs[x])) availableTags.push(attrs[x]);
     }
   }
+  $( ".tags" ).autocomplete({
+    source: availableTags
+  });
 }
 
-var availableTags = [
-  "Molly",
-  "Garfield",
-  "Simba",
-  "Sanyi",
-  "Cammogó",
-  "Bibi",
-  "Alfonz",
-  "Masni",
-  "Eszmeralda",
-  "Hím",
-  "Nőstény",
-  "Ocicat",
-  "Brit rövidszőrű",
-  "Burma",
-  "Egyiptomi mau",
-  "Házi macska",
-  "Cymric",
-  "Burmilla",
-  "Félénk",
-  "Energiadús",
-  "Játékos",
-  "Falánk",
-  "Emberkedvelő",
-  "Fürge",
-  "Bújós",
-];
+let availableTags = [];
+updateAvailableTags();
 $( ".tags" ).autocomplete({
   source: availableTags
 });

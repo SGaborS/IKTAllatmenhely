@@ -16,7 +16,7 @@
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
           <a class="navbar-brand" href="#" onclick="fooldalMegjelenit()"><img src="./Img/macskicon.png" alt="">
-            <span class="navbar-brand"> Macskamenhely</span></a>
+            <span class="navbar-brand">Kószáló Mancsok</span></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             
@@ -43,21 +43,22 @@
      
     
     <div class="menupont fooldal">
-      <div class="ui-widget">
-        <input class="form-control me-2 tags" type="search" placeholder="Keresés...." aria-label="Search" onkeyup="search(event)" onblur="search(event)">
-        
-       
+      <h1 class="text-center mt-3 mb-5">Kószáló Mancsok Macskamenhely</h1>
+      <div class="ui-widget w-50">
+        <input class="form-control me-2 tags" type="search" placeholder="Keresés...." aria-label="Search" onkeyup="search()" onblur="search()">
       </div>
       
       <div class="table-responsive">
         <table class="table">
           <thead class="thead-dark">
             <tr>
-              <th scope="col">Név</th>
-              <th scope="col">Fajta</th>
-              <th scope="col">Neme</th>
-              <th scope="col">Születésnap</th>
-              <th scope="col">Rövid leírás</th>
+              <th scope="col"><a href="#" onclick="szures(event, 'getNev')">Név</a></th>
+              <th scope="col"><a href="#" onclick="szures(event, 'getFajta')">Fajta</a></th>
+              <th scope="col"><a href="#" onclick="szures(event, 'getNemText')">Neme</a></th>
+              <th scope="col"><a href="#" onclick="szures(event, 'getSzulNap')">Születésnap</a></th>
+              <th scope="col"><a href="#" onclick="szures(event, 'getDesc')">Rövid leírás</a></th>
+              <th scope="col"><a href="#" onclick="szures(event, 'getDateDifference')">Menhelyen töltött idő</a></th>
+              <th scope="col"><a href="#" onclick="szures(event, 'getOrokbefogadva')">Örökbefogadva</a></th>
               <th scope="col">Módosítás</th>
             </tr>
           </thead>
@@ -68,13 +69,13 @@
       <button class="addbutton" type="button" onclick="clearForm()">+</button>
       
       <div class="modal fade" id="macskaHozzaadModal" tabindex="-1" aria-labelledby="macskaHozzaad" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog  w-fit-content">
           <div class="modal-content">
             <div class="modal-header">
               <h2 class="modal-title fs-5" id="macskaHozzaad">Macska hozzáadása</h2>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form onsubmit="return false;" class="m-auto text-center modalForm">
+            <form onsubmit="return false;" class="modalForm p-4">
               <div class="modal-body">
                 
                   <label for="nev">Macska neve:</label><br>
@@ -160,6 +161,7 @@
       </div>
 
       <div class="container menupont orokbefogadas mt-5">
+        <h1 class="text-center mb-3">Örökbefogadási Űrlap</h1>
         <div class="adopt">
         <form class="row g-3 orokbefogadasForm" onsubmit="return false;">
           <div class="col-md-6 col-sm-12">
@@ -224,7 +226,7 @@
 
           <div class="col-12">
             <input class="adopt-btn form-uncheck" type="checkbox" required>
-            <span>Az ügyfél elfogadja az <a href="adoptionText.html">örökbefogadási feltételeket</a></span>
+            <span>Az ügyfél elfogadja az <a href="#">örökbefogadási feltételeket</a></span>
             
             <button class="btn d-block m-auto orokbefogad" type="submit" value="-1">Macska örökbefogadása</button>
           </div>

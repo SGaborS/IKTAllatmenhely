@@ -8,7 +8,7 @@ class Macska{
    #felvevesiDatum;
 
 
-   constructor(nev, fajta, nem, szulNap, desc) {
+   constructor(nev, fajta, nem, szulNap, desc, felvevesiDatum) {
       this.setNev(nev);
       this.setFajta(fajta);
       this.setNem(nem);
@@ -16,8 +16,19 @@ class Macska{
       this.setDesc(desc);
       this.setOrokbefogadva(false);
       const date = new Date();
-      this.setFelvevesiDatum(date.toISOString().slice(0, 10));
+      if(felvevesiDatum == "") this.setFelvevesiDatum(date.toISOString().slice(0, 10));
+      else this.setFelvevesiDatum(felvevesiDatum);
    }
+
+   static fuggvenyASorthoz(getter, novekvo) {
+      return function (a, b) {
+        let elso = a[getter]();
+        let masodik = b[getter]();
+        if (elso < masodik) return novekvo?-1:1;
+        else if (elso > masodik) return novekvo?1:-1;
+        return 0;
+      };
+    }
    
    getNev() {
       return this.#nev;
@@ -57,6 +68,10 @@ class Macska{
 
    getAllAttrs() {
       return [this.#nev, this.#fajta, this.getNemText(), this.#szulNap, this.#desc]
+   }
+
+   getDateDifference() {
+      return Math.floor((new Date()-new Date(this.getFelvevesiDatum()))/1000/60/60/24);
    }
 
    setNev(nev) {

@@ -1,4 +1,6 @@
-let menyhelyiMacskak = [new Macska("Molly","Ocicat",true,"2021-10-01","Félénk"),new Macska("Garfield","Ocicat",false,"2020-07-25","Félénk"),new Macska("Simba","Brit rövidszőrű",true,"2019-05-12","Energiadús"), new Macska("Sanyi","Burma",true,"2020-05-12","Játékos"), new Macska("Cammogó","Egyiptomi mau",false,"2022-08-20","Falánk"), new Macska("Bibi","Házi macska",false,"2023-04-15","Emberkedvelő"), new Macska("Alfonz","Cyrmic",true,"2021-09-15","Fürge"), new Macska("Masni","Burmilla",false,"2022-04-15","Bújós"), new Macska("Eszmeralda","Egyiptomi mau",false,"2023-06-18","Energiadús")];
+let menyhelyiMacskak = [new Macska("Molly","Ocicat",true,"2021-10-01","Félénk", "2023-10-14"),new Macska("Garfield","Ocicat",false,"2020-07-25","Félénk", "2024-01-14"),new Macska("Simba","Brit rövidszőrű",true,"2019-05-12","Energiadús", "2023-12-24"), new Macska("Sanyi","Burma",true,"2020-05-12","Játékos", "2023-10-18"), new Macska("Cammogó","Egyiptomi mau",false,"2022-08-20","Falánk", "2024-02-01"), new Macska("Bibi","Házi macska",false,"2023-04-15","Emberkedvelő", "2024-01-10"), new Macska("Alfonz","Cyrmic",true,"2021-09-15","Fürge", "2023-12-03"), new Macska("Masni","Burmilla",false,"2022-04-15","Bújós", "2023-08-14"), new Macska("Eszmeralda","Egyiptomi mau",false,"2023-06-18","Energiadús", "2023-10-28")];
+
+
 
 function insertTable() {
   let adminTable = document.querySelector(".adminTable");
@@ -12,6 +14,8 @@ function insertTable() {
       <td>${menyhelyiMacskak[i].getNemText()}</td>
       <td>${menyhelyiMacskak[i].getSzulNap()}</td>
       <td>${menyhelyiMacskak[i].getDesc()}</td>
+      <td>${menyhelyiMacskak[i].getDateDifference()} nap</td>
+      <td>Nem</td>
       <td>
         <button class="delete" data-bs-toggle="modal" data-bs-target="#macskaTorolModal" value="${i}" onclick="insertDelData(event)">Törlés</button>
         <button value="${i}" class="edit" onclick="insertModData(event)">Módosítás</button>
@@ -25,6 +29,8 @@ function insertTable() {
       <td>${menyhelyiMacskak[i].getNemText()}</td>
       <td>${menyhelyiMacskak[i].getSzulNap()}</td>
       <td>${menyhelyiMacskak[i].getDesc()}</td>
+      <td>-</td>
+      <td>Igen</td>
       <td>
         <button class="delete" data-bs-toggle="modal" data-bs-target="#macskaTorolModal" value="${i}" onclick="insertDelData(event)">Törlés</button>
       </td>
