@@ -106,17 +106,5 @@ class Macska{
       return "Macska neve: " + this.getNev() + "<br>Fajtája: " + this.getFajta() + "<br>Neme: " + this.getNemText() + "<br>Születésnapja: " + this.getSzulNap() + "<br>Rövid jellemzője: " +this.getDesc();
    }
 
-   toJSON() {
-      return {
-         nev : this.#nev,
-         fajta : this.#fajta,
-         nem : this.#nem,
-         szulNap : this.#szulNap,
-         desc : this.#desc,
-         orokbefogadva : this.#orokbefogadva,
-         felvevesiDatum : this.#felvevesiDatum
-      };
-   }
-
 }
 
