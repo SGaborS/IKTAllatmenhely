@@ -14,226 +14,231 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#" onclick="fooldalMegjelenit()"><img src="./Img/macskicon.png" alt="">
-            <span class="navbar-brand">Kószáló Mancsok</span></a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#" onclick="fooldalMegjelenit()"><img src="./Img/macskicon.png" alt="">
+          <span class="navbar-brand">Kószáló Mancsok</span></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
           
-          </button>
-          <div class="collapse navbar-collapse header" id="navbarNav">
-            <ul class="navbar-nav">
-              
-              <li class="nav-item">
-                <a class="nav-link fooldalGomb" href="#">Főoldal</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link macskakGomb" href="#">Macskák </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link orokbefogadasGomb" href="#" >Örökbefogadás</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-
-     
-     
-    
-    <div class="menupont fooldal">
-      <h1 class="text-center mt-3 mb-5">Kószáló Mancsok Macskamenhely</h1>
-      <div class="ui-widget w-50">
-        <input class="form-control me-2 tags" type="search" placeholder="Keresés...." aria-label="Search" onkeyup="search()" onblur="search()">
-      </div>
-      
-      <div class="table-responsive">
-        <table class="table">
-          <thead class="thead-dark">
-            <tr>
-              <th scope="col"><a href="#" onclick="szures(event, 'getNev')">Név</a></th>
-              <th scope="col"><a href="#" onclick="szures(event, 'getFajta')">Fajta</a></th>
-              <th scope="col"><a href="#" onclick="szures(event, 'getNemText')">Neme</a></th>
-              <th scope="col"><a href="#" onclick="szures(event, 'getSzulNap')">Születésnap</a></th>
-              <th scope="col"><a href="#" onclick="szures(event, 'getDesc')">Rövid leírás</a></th>
-              <th scope="col"><a href="#" onclick="szures(event, 'getDateDifference')">Menhelyen töltött idő</a></th>
-              <th scope="col"><a href="#" onclick="szures(event, 'getOrokbefogadva')">Örökbefogadva</a></th>
-              <th scope="col">Módosítás</th>
-            </tr>
-          </thead>
-          <tbody class="adminTable">
-          </tbody>
-        </table>
-      </div>
-      <button class="addbutton" type="button" onclick="clearForm()">+</button>
-      
-      <div class="modal fade" id="macskaHozzaadModal" tabindex="-1" aria-labelledby="macskaHozzaad" aria-hidden="true">
-        <div class="modal-dialog  w-fit-content">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h2 class="modal-title fs-5" id="macskaHozzaad">Macska hozzáadása</h2>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <form onsubmit="return false;" class="modalForm p-4">
-              <div class="modal-body">
-                
-                  <label for="nev">Macska neve:</label><br>
-                  <input type="text" id="nev" class="nev form-clear" required maxlength="20"><br>
-                  <label for="fajta">Macska fajtája:</label><br>
-                  <input type="text" id="fajta" class="fajta form-clear" required maxlength="20"><br>
-                  <label>Macska neme:</label><br>
-                  <label for="him">Hím</label>
-                  <input type="radio" name="nem" id="him" class="him form-uncheck" required>
-                  <label for="nosteny">Nőstény</label>
-                  <input type="radio" name="nem" id="nosteny" class="nosteny form-uncheck" required><br>
-                  <label>Macska születésnapja:</label><br>
-                  <select name="szulnap-ev" id="szulnap-ev" class="szulnap-ev szul-nap" required>
-                      <option value="">Válasszon!</option>
-                  </select>
-                  <select name="szulnap-ho" id="szulnap-ho" class="szulnap-ho szul-nap" required>
-                    <option value="">Válasszon!</option>
-                  </select>
-                  <select name="szulnap-nap" id="szulnap-nap" class="szulnap-nap szul-nap" required>
-                    <option value="">Válasszon!</option>
-                  </select><br>
-                  <label for="jellem">Rövid jellemzés a macskáról:</label><br>
-                  <input type="text" id="jellem" class="jellem form-clear" maxlength="25">
-                
-
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Mégse</button>
-                <button type="submit" class="btn btn-primary hozzaadGomb" value="1" onclick="addMacska()">Macska hozzáadása</button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-
-      <div class="modal fade" id="macskaTorolModal" tabindex="-1" aria-labelledby="macskaTorol" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h2 class="modal-title fs-5" id="macskaTorol">Macska törlése</h2>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <h4>Biztos törölni szeretnéd ezt a macskát?</h4>
-              <p class="macska-nev"></p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Mégse</button>
-              <button type="button" class="btn btn-danger delGomb" data-bs-dismiss="modal">Macska törlése</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="modal fade" id="sikerModal" tabindex="-1" aria-labelledby="siker" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5 siker-title" id="siker"></h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <h4 class="siker-body"></h4>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ok</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-    
-
-    <div class="container mt-5 menupont macskak ">
-        <h1 class="text-center mb-5">Gazdit keresünk</h1>
         
-        <div class="row macskakTabla">
-            <form class="d-flex" role="search">
-                
-              </form>
-        </div>
-      </div>
-
-      <div class="container menupont orokbefogadas mt-5">
-        <h1 class="text-center mb-3">Örökbefogadási Űrlap</h1>
-        <div class="adopt">
-        <form class="row g-3 orokbefogadasForm" onsubmit="return false;">
-          <div class="col-md-6 col-sm-12">
-            <label for="nev" class="form-label">Örökbefogadó teljes neve</label>
-            <input type="text" class="form-control form-clear" id="nev" required>
-            <label for="email" class="form-label">Örökbefogadó email-e</label>
-            <input type="email" class="form-control form-clear" id="email" required>
-            <label for="telefon" class="form-label">Örökbefogadó telefonszáma</label>
-            <input type="tel" class="form-control form-clear" id="telefon" name="phone" required pattern="[0-9]{2} [0-9]{2} [0-9]{3} [0-9]{4}" placeholder="36 XX XXX XXXX">
-            <label for="lakcim" class="form-label">Örökbefogadó lakcíme</label>
-            <input type="text" class="form-control form-clear" id="lakcim" required>
-          </div>
-          <div class="col-md-6 col-sm-12">
-            <h3 class="text-center">Kiválasztott macska</h2>
-            <div class="container-fluid d-flex adoptMacska m-5">
-              <div class="col-5 m-auto">
-                <img src="Img/catIco.jpg" class="d-block w-100">
-              </div>
-              <div class="col-5 m-auto">
-                <p class="text-center">Macska neve</p>
-                <p>Született:</p>
-                <p>Fajta:</p>
-                <p>Leírás </p>
-              </div>
-            </div>
-            <div class="modal fade" id="modalNoMacska" tabindex="-1" aria-labelledby="noMacska" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h1 class="modal-title fs-5 noMacska-title" id="noMacska">HIBA!</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    <p>Nem választott ki macskát!</p>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ok</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="modal fade" id="modalMacskaSikeres" tabindex="-1" aria-labelledby="macskaSikeres" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h1 class="modal-title fs-5 macskaSikeres-title" id="macskaSikeres">ÖRÖKBEFOGADÁS SIKERES!</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    <p>Az örökbefogadás sikeresen megtörtént!</p>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ok</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <button type="button" class="btn m-auto d-block masikMacska">Másik macska kiválasztása</button>
-          </div>
-
-
-          <div class="col-12">
-            <input class="adopt-btn form-uncheck" type="checkbox" required>
-            <span>Az ügyfél elfogadja az <a href="#">örökbefogadási feltételeket</a></span>
+        </button>
+        <div class="collapse navbar-collapse header" id="navbarNav">
+          <ul class="navbar-nav">
             
-            <button class="btn d-block m-auto orokbefogad" type="submit" value="-1">Macska örökbefogadása</button>
-          </div>
-        </form>
+            <li class="nav-item">
+              <a class="nav-link fooldalGomb" href="#">Főoldal</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link macskakGomb" href="#">Macskák </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link orokbefogadasGomb" href="#" >Örökbefogadás</a>
+            </li>
+          </ul>
         </div>
       </div>
+    </nav>
 
+     
+     
+    
+    <main>
+      <section class="menupont fooldal">
+        <h1 class="text-center mt-3 mb-5">Kószáló Mancsok Macskamenhely</h1>
+        <div class="ui-widget w-50">
+          <input class="form-control me-2 tags" type="search" placeholder="Keresés...." aria-label="Search" onkeyup="search()" onblur="search()">
+        </div>
+        
+        <div class="table-responsive">
+          <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col"><a href="#" onclick="szures(event, 'getNev')">Név</a></th>
+                <th scope="col"><a href="#" onclick="szures(event, 'getFajta')">Fajta</a></th>
+                <th scope="col"><a href="#" onclick="szures(event, 'getNemText')">Neme</a></th>
+                <th scope="col"><a href="#" onclick="szures(event, 'getSzulNap')">Születésnap</a></th>
+                <th scope="col"><a href="#" onclick="szures(event, 'getDesc')">Rövid leírás</a></th>
+                <th scope="col"><a href="#" onclick="szures(event, 'getDateDifference')">Menhelyen töltött idő</a></th>
+                <th scope="col"><a href="#" onclick="szures(event, 'getOrokbefogadva')">Örökbefogadva</a></th>
+                <th scope="col">Módosítás</th>
+              </tr>
+            </thead>
+            <tbody class="adminTable">
+            </tbody>
+          </table>
+        </div>
+        <button class="addbutton" type="button" onclick="clearForm()">+</button>
+        
+        <div class="modal fade" id="macskaHozzaadModal" tabindex="-1" aria-labelledby="macskaHozzaad" aria-hidden="true">
+          <div class="modal-dialog  w-fit-content">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h2 class="modal-title fs-5" id="macskaHozzaad">Macska hozzáadása</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <form onsubmit="return false;" class="modalForm p-4">
+                <div class="modal-body">
+                  
+                    <label for="nev">Macska neve:</label><br>
+                    <input type="text" id="nev" class="nev form-clear" required maxlength="20"><br>
+                    <label for="fajta">Macska fajtája:</label><br>
+                    <input type="text" id="fajta" class="fajta form-clear" required maxlength="20"><br>
+                    <label>Macska neme:</label><br>
+                    <label for="him">Hím</label>
+                    <input type="radio" name="nem" id="him" class="him form-uncheck" required>
+                    <label for="nosteny">Nőstény</label>
+                    <input type="radio" name="nem" id="nosteny" class="nosteny form-uncheck" required><br>
+                    <label>Macska születésnapja:</label><br>
+                    <select name="szulnap-ev" id="szulnap-ev" class="szulnap-ev szul-nap" required>
+                        <option value="">Válasszon!</option>
+                    </select>
+                    <select name="szulnap-ho" id="szulnap-ho" class="szulnap-ho szul-nap" required>
+                      <option value="">Válasszon!</option>
+                    </select>
+                    <select name="szulnap-nap" id="szulnap-nap" class="szulnap-nap szul-nap" required>
+                      <option value="">Válasszon!</option>
+                    </select><br>
+                    <label for="jellem">Rövid jellemzés a macskáról:</label><br>
+                    <input type="text" id="jellem" class="jellem form-clear" maxlength="25">
+                  
+  
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Mégse</button>
+                  <button type="submit" class="btn btn-primary hozzaadGomb" value="1" onclick="addMacska()">Macska hozzáadása</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+  
+          <div class="modal fade" id="macskaTorolModal" tabindex="-1" aria-labelledby="macskaTorol" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h2 class="modal-title fs-5" id="macskaTorol">Macska törlése</h2>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <h4>Biztos törölni szeretnéd ezt a macskát?</h4>
+                  <p class="macska-nev"></p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Mégse</button>
+                  <button type="button" class="btn btn-danger delGomb" data-bs-dismiss="modal">Macska törlése</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal fade" id="sikerModal" tabindex="-1" aria-labelledby="siker" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5 siker-title" id="siker"></h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <h4 class="siker-body"></h4>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ok</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+  
+      
+      
+  
+      <section class="container mt-5 menupont macskak ">
+          <h1 class="text-center mb-5">Gazdit keresünk</h1>
+          
+          <div class="row macskakTabla">
+              <form class="d-flex" role="search">
+                  
+                </form>
+          </div>
+      </section>
+  
+        <section class="container menupont orokbefogadas mt-5">
+          <h1 class="text-center mb-3">Örökbefogadási Űrlap</h1>
+          <div class="adopt">
+          <form class="row g-3 orokbefogadasForm" onsubmit="return false;">
+            <div class="col-md-6 col-sm-12">
+              <label for="nev" class="form-label">Örökbefogadó teljes neve</label>
+              <input type="text" class="form-control form-clear" id="nev" required>
+              <label for="email" class="form-label">Örökbefogadó email-e</label>
+              <input type="email" class="form-control form-clear" id="email" required>
+              <label for="telefon" class="form-label">Örökbefogadó telefonszáma</label>
+              <input type="tel" class="form-control form-clear" id="telefon" name="phone" required pattern="[0-9]{2} [0-9]{2} [0-9]{3} [0-9]{4}" placeholder="36 XX XXX XXXX">
+              <label for="lakcim" class="form-label">Örökbefogadó lakcíme</label>
+              <input type="text" class="form-control form-clear" id="lakcim" required>
+            </div>
+            <div class="col-md-6 col-sm-12">
+              <h3 class="text-center">Kiválasztott macska</h2>
+              <div class="container-fluid d-flex adoptMacska m-5">
+                <div class="col-5 m-auto">
+                  <img src="Img/catIco.jpg" class="d-block w-100">
+                </div>
+                <div class="col-5 m-auto">
+                  <p class="text-center">Macska neve</p>
+                  <p>Született:</p>
+                  <p>Fajta:</p>
+                  <p>Leírás </p>
+                </div>
+              </div>
+              <div class="modal fade" id="modalNoMacska" tabindex="-1" aria-labelledby="noMacska" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5 noMacska-title" id="noMacska">HIBA!</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <p>Nem választott ki macskát!</p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ok</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="modal fade" id="modalMacskaSikeres" tabindex="-1" aria-labelledby="macskaSikeres" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5 macskaSikeres-title" id="macskaSikeres">ÖRÖKBEFOGADÁS SIKERES!</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <p>Az örökbefogadás sikeresen megtörtént!</p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ok</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button type="button" class="btn m-auto d-block masikMacska">Másik macska kiválasztása</button>
+            </div>
+  
+  
+            <div class="col-12">
+              <input class="adopt-btn form-uncheck" type="checkbox" required>
+              <span>Az ügyfél elfogadja az <a href="#">örökbefogadási feltételeket</a></span>
+              
+              <button class="btn d-block m-auto orokbefogad" type="submit" value="-1">Macska örökbefogadása</button>
+            </div>
+          </form>
+          </div>
+        </section>
+  
+    </main>
 
 
 <footer class="text-center text-lg-start bg-body-tertiary text-muted footer">
