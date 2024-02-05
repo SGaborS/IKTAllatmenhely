@@ -6,16 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="./Img/favicon.ico">
     <link rel="stylesheet" href="./CSS/bootstrap.min.css">
-    <script src="./JavaScript/bootstrap.min.js"></script>
-    <script src="JavaScript/bootstrap.bundle.min.js"></script>
-    <script src="JavaScript/macska.js"></script>
-    <script src="./JavaScript/Jquerry/jquery.js"></script>
-    <script src="./JavaScript/Jquerry/jquery-ui.js"></script>
-    <script src="./JavaScript/Jquerry/dataTables.bootstrap.min.js"></script>
-    <script src="./JavaScript/Jquerry/dataTables.fixedHeader.min.js"></script>
-    <script src="./JavaScript/Jquerry/dataTables.responsive.min.js"></script>
-    <script src="./JavaScript/Jquerry/jquery.dataTables.min.js"></script>
-    <script src="./JavaScript/Jquerry/responsive.bootstrap.min.js"></script>
+    <script src="./JavaScript/macska.js"></script>
+
     <link rel="stylesheet" href="./CSS/jquery-ui.css">
     <link rel="stylesheet" href="./CSS/style.css">
     <title>Macskamenhely</title>
@@ -52,7 +44,7 @@
     
     <div class="menupont fooldal">
       <div class="ui-widget">
-        <input class="form-control me-2 tags" type="search" placeholder="Keresés...." aria-label="Search">
+        <input class="form-control me-2 tags" type="search" placeholder="Keresés...." aria-label="Search" onkeyup="search(event)" onblur="search(event)">
         
        
       </div>
@@ -74,25 +66,6 @@
         </table>
       </div>
       <button class="addbutton" type="button" onclick="clearForm()">+</button>
-      <div class="orokbefogadottak d-none mt-5">
-        <h2>Örökbefogadott Macskák</h2>
-        <div class="table-responsive mt-1">
-          <table class="table">
-            <thead class="thead-dark">
-              <tr>
-                <th scope="col">Név</th>
-                <th scope="col">Fajta</th>
-                <th scope="col">Neme</th>
-                <th scope="col">Születésnap</th>
-                <th scope="col">Rövid leírás</th>
-                <th scope="col">Módosítás</th>
-              </tr>
-            </thead>
-            <tbody class="orokbefogadottTable">
-            </tbody>
-          </table>
-        </div>
-      </div>
       
       <div class="modal fade" id="macskaHozzaadModal" tabindex="-1" aria-labelledby="macskaHozzaad" aria-hidden="true">
         <div class="modal-dialog">
@@ -105,9 +78,9 @@
               <div class="modal-body">
                 
                   <label for="nev">Macska neve:</label><br>
-                  <input type="text" id="nev" class="nev form-clear" required maxlength="25"><br>
+                  <input type="text" id="nev" class="nev form-clear" required maxlength="20"><br>
                   <label for="fajta">Macska fajtája:</label><br>
-                  <input type="text" id="fajta" class="fajta form-clear" required maxlength="25"><br>
+                  <input type="text" id="fajta" class="fajta form-clear" required maxlength="20"><br>
                   <label>Macska neme:</label><br>
                   <label for="him">Hím</label>
                   <input type="radio" name="nem" id="him" class="him form-uncheck" required>
@@ -124,7 +97,7 @@
                     <option value="">Válasszon!</option>
                   </select><br>
                   <label for="jellem">Rövid jellemzés a macskáról:</label><br>
-                  <input type="text" id="jellem" class="jellem form-clear" maxlength="250">
+                  <input type="text" id="jellem" class="jellem form-clear" maxlength="25">
                 
 
               </div>
@@ -364,6 +337,12 @@
       
 
 </body>
+<script src="./JavaScript/bootstrap.min.js"></script>
+<script src="./JavaScript/bootstrap.bundle.min.js"></script>
+<script src="./JavaScript/Jquery/jquery.js"></script>
+<script src="./JavaScript/Jquery/jquery-ui.js"></script>
+
+
 <script src="JavaScript/insert.js"></script>
 <script src="JavaScript/script.js"></script>
 </html>

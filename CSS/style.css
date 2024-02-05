@@ -210,3 +210,7 @@ a{
 .footer{
     margin-top: 250px;
 }
+
+.adopted-row td, .adopted-row th {
+    background-color: rgb(212, 212, 212) !important;
+}

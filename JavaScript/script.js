@@ -48,13 +48,6 @@ delGomb.addEventListener("click", function () {
   sikerModal.show();
   document.querySelector(".siker-title").innerHTML = "Sikeres törlés!";
   document.querySelector(".siker-body").innerHTML = menyhelyiMacskak[delGomb.value].getNev()+" sikeresen kitörölve!";
-  if(menyhelyiMacskak[delGomb.value].getOrokbefogadva()) {
-    let orokbefogadott = 0;
-    for(let i = 0;i<menyhelyiMacskak.length;i++) {
-      if(menyhelyiMacskak[i].getOrokbefogadva()) orokbefogadott++;
-    }
-    if(orokbefogadott == 1) document.querySelector(".orokbefogadottak").classList.add("d-none");
-  }
   menyhelyiMacskak.splice(delGomb.value,1);
   fooldalMegjelenit();
 });
@@ -88,6 +81,7 @@ function addMacska() {
   if(!document.querySelector(".modalForm").reportValidity()) return;
   modalForm.show();
   let button = document.querySelector(".hozzaadGomb");
+  let hozzaadas = menyhelyiMacskak[button.value] == undefined;
   let nev = document.querySelector(".nev").value;
   let fajta = document.querySelector(".fajta").value;
   let jellem = document.querySelector(".jellem").value;
@@ -100,7 +94,8 @@ function addMacska() {
   szulnap += "-"+(szulnapNap<10?"0"+szulnapNap:szulnapNap);
   menyhelyiMacskak[button.value] = new Macska(nev, fajta, nem, szulnap, jellem);
   modalForm.hide();
-  if(button.value==menyhelyiMacskak.length-1) {
+  updateAvailableTags();
+  if(hozzaadas) {
     sikerModal.show();
     document.querySelector(".siker-title").innerHTML = "Sikeres hozzáadás!";
     document.querySelector(".siker-body").innerHTML = menyhelyiMacskak[button.value].getNev()+" sikeresen hozzáadva!";
@@ -111,6 +106,26 @@ function addMacska() {
     document.querySelector(".siker-body").innerHTML = menyhelyiMacskak[button.value].getNev()+" sikeresen módosítva!";
   }
   fooldalMegjelenit();
+}
+
+function search(event) {
+  let search = event.target.value.toLowerCase();
+  let rows = document.querySelectorAll("tbody tr");
+  for(let i = 0; i<menyhelyiMacskak.length;i++) {
+    if(!menyhelyiMacskak[i].isSearchedFor(search)&&search!="") rows[i].style.display = "none";
+    else rows[i].style.display = "table-row";
+  }
+}
+
+function updateAvailableTags() {
+  availableTags = [];
+  let attrs;
+  for(let i = 0; i<menyhelyiMacskak.length;i++) {
+    attrs = menyhelyiMacskak[i].getAllAttrs();
+    for(let x = 0; x < attrs.length; x++) {
+      if(!availableTags.includes(attrs[i])) availableTags.push(attrs[i]);
+    }
+  }
 }
 
 var availableTags = [
@@ -126,18 +141,12 @@ var availableTags = [
   "Hím",
   "Nőstény",
   "Ocicat",
-  "Brit rövidszúrű",
+  "Brit rövidszőrű",
   "Burma",
   "Egyiptomi mau",
   "Házi macska",
   "Cymric",
   "Burmilla",
-  "Sárga-fehér",
-  "Fehér-barna",
-  "Fehér-szürke",
-  "Fehér-fekete",
-  "Fehér-barna",
-  "Fehér-sárga",
   "Félénk",
   "Energiadús",
   "Játékos",
@@ -145,18 +154,7 @@ var availableTags = [
   "Emberkedvelő",
   "Fürge",
   "Bújós",
-
 ];
 $( ".tags" ).autocomplete({
   source: availableTags
 });
-
-
-
-$(document).ready(function() {
-  var table = $('#table').DataTable( {
-      responsive: true
-  } );
-
-  new $.fn.dataTable.FixedHeader( table );
-} );

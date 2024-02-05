@@ -3,32 +3,32 @@ let menyhelyiMacskak = [new Macska("Molly","Ocicat",true,"2021-10-01","Félénk"
 function insertTable() {
   let adminTable = document.querySelector(".adminTable");
   adminTable.innerHTML = "";
-  let adoptTable = document.querySelector(".orokbefogadottTable");
-  adoptTable.innerHTML = "";
-  let macskaString;
   for (let i = 0;i<menyhelyiMacskak.length;i++) {
-    macskaString = `<tr>
-    <th scope="row">${menyhelyiMacskak[i].getNev()}</th>
-    <td>${menyhelyiMacskak[i].getFajta()}</td>
-    <td>${menyhelyiMacskak[i].getNemText()}</td>
-    <td>${menyhelyiMacskak[i].getSzulNap()}</td>
-    <td>${menyhelyiMacskak[i].getDesc()}</td>
-    `
+    
     if (!menyhelyiMacskak[i].getOrokbefogadva()) {
-      macskaString+= `<td>
-      <button class="delete" data-bs-toggle="modal" data-bs-target="#macskaTorolModal" value="${i}" onclick="insertDelData(event)">Törlés</button>
-      <button value="${i}" class="edit" onclick="insertModData(event)">Módosítás</button>
-    </td>
-  </tr>`
-      adminTable.innerHTML += macskaString;
+      adminTable.innerHTML += `<tr>
+      <th scope="row">${menyhelyiMacskak[i].getNev()}</th>
+      <td>${menyhelyiMacskak[i].getFajta()}</td>
+      <td>${menyhelyiMacskak[i].getNemText()}</td>
+      <td>${menyhelyiMacskak[i].getSzulNap()}</td>
+      <td>${menyhelyiMacskak[i].getDesc()}</td>
+      <td>
+        <button class="delete" data-bs-toggle="modal" data-bs-target="#macskaTorolModal" value="${i}" onclick="insertDelData(event)">Törlés</button>
+        <button value="${i}" class="edit" onclick="insertModData(event)">Módosítás</button>
+      </td>
+      </tr>`;
     }
     else {
-      document.querySelector(".orokbefogadottak").classList.remove("d-none");
-      macskaString += `<td>
-      <button class="delete" data-bs-toggle="modal" data-bs-target="#macskaTorolModal" value="${i}" onclick="insertDelData(event)">Törlés</button>
+      adminTable.innerHTML += `<tr class="adopted-row">
+      <th scope="row">${menyhelyiMacskak[i].getNev()}</th>
+      <td>${menyhelyiMacskak[i].getFajta()}</td>
+      <td>${menyhelyiMacskak[i].getNemText()}</td>
+      <td>${menyhelyiMacskak[i].getSzulNap()}</td>
+      <td>${menyhelyiMacskak[i].getDesc()}</td>
+      <td>
+        <button class="delete" data-bs-toggle="modal" data-bs-target="#macskaTorolModal" value="${i}" onclick="insertDelData(event)">Törlés</button>
       </td>
-      </tr>`
-      adoptTable.innerHTML += macskaString;
+      </tr>`;
     }
   }
 }
